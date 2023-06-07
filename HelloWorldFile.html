@@ -1,0 +1,35 @@
+<html>
+  <style>
+    a {
+      color: orange;
+    }
+  </style>
+
+  <script src="https://targeteverest60-dev-ed.develop.my.site.com/helloworld/lightning/lightning.out.js"></script>
+
+  <div data-lightning-out="true"></div>
+
+  <script>
+    const appName = "c:HelloWorldAura";
+    const componentName = "c:helloWorld";
+    const lightningEndpoint =
+      "https://targeteverest60-dev-ed.develop.my.site.com";
+    const targetElement = document.querySelector("[data-lightning-out]");
+    const componentAttributes = {};
+
+    $Lightning.use(
+      appName,
+      function () {
+        $Lightning.createComponent(
+          componentName,
+          componentAttributes,
+          targetElement,
+          function (cmp) {
+            console.log("lightning component created");
+          }
+        );
+      },
+      lightningEndpoint
+    );
+  </script>
+</html>
