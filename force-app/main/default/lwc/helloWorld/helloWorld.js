@@ -9,7 +9,7 @@ export default class HelloWorld extends LightningElement {
   connectedCallback() {
     testMethod({testParam: this.greeting})
     .then(result => {
-      console.log(result);
+      console.log('This data is coming from the APEX class:'+result);
     })
     .catch(error => {
       console.log(error);
