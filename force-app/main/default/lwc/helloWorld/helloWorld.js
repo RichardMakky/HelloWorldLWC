@@ -2,6 +2,8 @@ import { LightningElement } from "lwc";
 import testMethod from '@salesforce/apex/LWCController.test'
 export default class HelloWorld extends LightningElement {
   greeting = "World";
+  error;
+  
   changeHandler(event) {
     this.greeting = event.target.value;
   }
@@ -9,10 +11,10 @@ export default class HelloWorld extends LightningElement {
   connectedCallback() {
     testMethod({testParam: this.greeting})
     .then(result => {
-      console.log('This data is coming from the APEX class:'+result);
+      this.greeting = result;
     })
     .catch(error => {
-      console.log(error);
+      this.error = error;
     })
   }
 }
